@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-guestbook
+  namespace: argocd
+spec:
+  project: guestbook
+
+  source:
+    repoURL: 'file:////mount/git-repo.git'
+    path: .
+    targetRevision: main
+
+  destination:
+    name: in-cluster
+    namespace: guestbook
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

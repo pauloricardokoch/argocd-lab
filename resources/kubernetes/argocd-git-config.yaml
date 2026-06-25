@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-global-git-config
+  namespace: argocd
+data:
+  gitconfig: |
+    [safe]
+      directory = *
