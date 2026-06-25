@@ -4,14 +4,21 @@ metadata:
   name: guestbook
   namespace: argocd
 spec:
+
   roles:
   - name: application-admin
     policies:
     - p, proj:guestbook:application-admin, applications, *, guestbook/*, allow
     - p, proj:guestbook:application-admin, logs, *, guestbook/*, allow
+
   sourceRepos:
   - 'file:////mount/git-repo.git'
+
   destinations:
   - name: in-cluster
     server: https://default.svc
     namespace: guestbook
+
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
