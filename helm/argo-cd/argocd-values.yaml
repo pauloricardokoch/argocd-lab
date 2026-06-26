@@ -1,11 +1,9 @@
 repoServer:
   volumes:
-    # Your existing local repo volume
     - name: local-repo
       hostPath:
-        path: /home/pkoch/Documents/udemy/argocd/git-repo/
+        path: /home/pkoch/Documents/github/pauloricardokoch/argocd-lab/git-repo/
         type: Directory
-    # The new Git configuration volume
     - name: git-config-volume
       configMap:
         name: argocd-global-git-config
@@ -14,10 +12,8 @@ repoServer:
             path: gitconfig
 
   volumeMounts:
-    # Your existing mount
     - name: local-repo
       mountPath: /mount/git-repo.git
-    # Mount the file to the system config location
     - name: git-config-volume
       mountPath: /etc/gitconfig
       subPath: gitconfig

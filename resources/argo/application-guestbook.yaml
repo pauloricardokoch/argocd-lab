@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: 'file:////mount/git-repo.git'
-    path: .
+    path: app-guestbook
     targetRevision: main
 
   destination:
