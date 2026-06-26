@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 argocd login localhost:8080 --insecure \
 --username=admin \
